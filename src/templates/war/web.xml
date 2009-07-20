@@ -91,7 +91,7 @@
 
     <security-constraint>
         <web-resource-collection>
-            <url-pattern>/watch</url-pattern>
+            <url-pattern>/watch/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin</role-name>
