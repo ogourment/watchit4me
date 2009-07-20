@@ -10,7 +10,7 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>	
-        <div class="logo"><img src="${resource(dir:'images',file:'watchit4me.gif')}" alt="WatchIt4Me" /></div>
+        <div class="logo"><img src="${resource(dir:'images',file:'watchit4me.gif')}" width="80" height="80" alt="WatchIt4Me" /></div>
         <g:layoutBody />		
     </body>	
 </html>
