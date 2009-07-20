@@ -17,20 +17,20 @@ class WatchController {
 			total =  siteInstanceList.size()
 		}
 
-		String info = "It is ${new Date()} here and we have $total site(s)."
+		String info = "It is ${new Date()} here and we have ${total} site(s)."
 		log.info (info)
 		
-		Session session = Session.getDefaultInstance([:], null)
+		Session session = Session.getDefaultInstance(new Properties(), null)
 
 		Message msg = new MimeMessage(session)
-		msg.setFrom(new InternetAddress("watchit4me@smarterportal.com"))
+		msg.setFrom(new InternetAddress("watchit4me.app@gmail.com"))
 		msg.addRecipient(Message.RecipientType.TO,
 		                 new InternetAddress("ogourment@smarterportal.com", "Olivier Gourment"))
 		msg.setSubject(info)
 		msg.setText(info)
 		Transport.send(msg)
 		
-		render msg
+		render info
 	}
 	
 }
