@@ -1,29 +1,36 @@
 package watchit4me
 
-import javax.persistence.*
+import javax.jdo.annotations.*;
+// import com.google.appengine.api.datastore.Key;
 
-@Entity @Table (name = "SITE")
+@PersistenceCapable(identityType = IdentityType.APPLICATION, detachable="true")
+class Site implements Serializable {
 
-class Site {
-  @Id @GeneratedValue (strategy = GenerationType.AUTO) Long id
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	Long id
 
-  @Temporal (TemporalType.TIMESTAMP) Date dateCreated
-  
-  @Temporal (TemporalType.TIMESTAMP) Date lastUpdated
+	@Persistent
+	String url
+	
+	@Persistent
+	Date dataCreated
+	
+	@Persistent
+	Date lastUpdated
+	
+	@Persistent
+	BigInteger checksum
+	
+	@Persistent
+	int lastHttpStatus
 
-  @Version int version
-  
-  @Basic String url
-
-  @Basic BigInteger checksum
-  
-  @Basic int lastHttpStatus
-  
-  @Basic String text
-  
-  static constraints = {
-    id (visible:false)
-    url (url:true)
-    checksum (visible:false)
+	@Persistent
+	String text
+	
+    static constraints = {
+    	id (visible:false)
+		url (url:true)
+		checksum (visible:false)
 	}
 }

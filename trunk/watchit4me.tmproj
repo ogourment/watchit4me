@@ -31,8 +31,6 @@
 			<string>test</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>lib</string>
 			<key>regexFolderFilter</key>
@@ -74,6 +72,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{-1077, 35}, {1067, 602}}</string>
+	<string>{{210, 4}, {1230, 874}}</string>
 </dict>
 </plist>
