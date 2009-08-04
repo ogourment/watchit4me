@@ -16,7 +16,7 @@ class HomeController {
 			You can <a href=\"${signout}"\">sign out</a>.</p>"""			
         } else {
 			def signin = userService.createLoginURL(thisURL)
-            render "<p>Please <a href=\"${signin}\">sign in</a>.</p>"
+            flash.message = "<p>Please <a href=\"${signin}\">sign in</a>.</p>"
         }
 	}
 }

@@ -8,8 +8,10 @@
         <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
         </g:if>
-        <div class="dialog" style="margin-left:20px;width:60%;">
-			<g:link controller="site">My Sites</g:link>
-        </div>
+		<g:if test="${request.userPrincipal}">
+	        <div class="dialog" style="margin-left:20px;width:60%;">
+				<g:link controller="site">My Sites</g:link>
+	        </div>
+		</g:if>
     </body>
 </html>
