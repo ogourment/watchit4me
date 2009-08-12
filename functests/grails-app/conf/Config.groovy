@@ -34,15 +34,9 @@ grails.enable.native2ascii = true
 
 // set per-environment serverURL stem for creating absolute links
 environments {
-    production {
-        grails.serverURL = "http://www.changeme.com"
-    }
-    development {
+    test {
         // the following URL is used by the functional-tests and must correspond to the running Grails instance to run test against
         grails.serverURL = "http://localhost:8080"
-    }
-    test {
-        grails.serverURL = "http://localhost:8080/${appName}"
     }
 
 }
