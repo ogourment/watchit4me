@@ -8,8 +8,12 @@ class WatchController {
 
 	def persistenceManager
 
-    def index = {
+    /**
+	  * called by cron
+	  */
+	def index = {
 
+		// jdo query
 		def query = persistenceManager.newQuery (Site)
 		def siteInstanceList = query.execute()
 		def total = 0
@@ -17,17 +21,18 @@ class WatchController {
 			total =  siteInstanceList.size()
 		}
 
-		String info = "It is ${new Date()} here and we have ${total} site(s)."
-		log.info (info)
+		String info = "It is ${new Date()} at Google and we have ${total} site(s)."
+		log.info (info) // where does this go???
 		
 		Session session = Session.getDefaultInstance(new Properties(), null)
 
 		Message msg = new MimeMessage(session)
+		// email address must be a valid developer
 		msg.setFrom(new InternetAddress("watchit4me.app@gmail.com"))
 		msg.addRecipient(Message.RecipientType.TO,
 		                 new InternetAddress("ogourment@smarterportal.com", "Olivier Gourment"))
-		msg.setSubject(info)
-		msg.setText(info)
+		msg.subject = "coucou!"
+		msg.text = info
 		Transport.send(msg)
 		
 		render info
