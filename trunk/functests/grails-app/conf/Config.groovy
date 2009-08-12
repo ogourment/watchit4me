@@ -38,7 +38,8 @@ environments {
         grails.serverURL = "http://www.changeme.com"
     }
     development {
-        grails.serverURL = "http://localhost:8080/${appName}"
+        // the following URL is used by the functional-tests and must correspond to the running Grails instance to run test against
+        grails.serverURL = "http://localhost:8080"
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
