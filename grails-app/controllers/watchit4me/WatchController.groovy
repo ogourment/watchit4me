@@ -6,20 +6,12 @@ import javax.mail.internet.*
 
 class WatchController {
 
-	def persistenceManager
-
     /**
 	  * called by cron
 	  */
 	def index = {
 
-		// jdo query
-		def query = persistenceManager.newQuery (Site)
-		def siteInstanceList = query.execute()
-		def total = 0
-		if (siteInstanceList && siteInstanceList.size() > 0) {
-			total =  siteInstanceList.size()
-		}
+		total =  Page.list().size()
 
 		String info = "It is ${new Date()} at Google and we have ${total} site(s)."
 		log.info (info) // where does this go???
@@ -31,7 +23,7 @@ class WatchController {
 		msg.setFrom(new InternetAddress("watchit4me.app@gmail.com"))
 		msg.addRecipient(Message.RecipientType.TO,
 		                 new InternetAddress("ogourment@smarterportal.com", "Olivier Gourment"))
-		msg.subject = "coucou!"
+		msg.subject = "Hi from Watchit4me (jpa)!"
 		msg.text = info
 		Transport.send(msg)
 		
