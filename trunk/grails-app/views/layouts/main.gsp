@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title><g:layoutTitle default="Grails" /></title>
+        <title><g:layoutTitle default="Watchit4Me!" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'.',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
